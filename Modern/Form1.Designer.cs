@@ -45,19 +45,19 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.labelVecka = new System.Windows.Forms.Label();
             this.buttonRollOPEN = new System.Windows.Forms.Button();
+            this.labelMMMM = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.buttonAPI = new System.Windows.Forms.Button();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.lblTitleChildform1 = new System.Windows.Forms.Label();
             this.iconCurrentChildForm0 = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.labelVecka = new System.Windows.Forms.Label();
-            this.labelMMMM = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxYouTube)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxGithub)).BeginInit();
@@ -317,6 +317,16 @@
             this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
+            // labelVecka
+            // 
+            this.labelVecka.AutoSize = true;
+            this.labelVecka.Location = new System.Drawing.Point(893, 23);
+            this.labelVecka.Name = "labelVecka";
+            this.labelVecka.Size = new System.Drawing.Size(67, 16);
+            this.labelVecka.TabIndex = 45;
+            this.labelVecka.Text = "vecka : 00";
+            this.labelVecka.Click += new System.EventHandler(this.labelVecka_Click);
+            // 
             // buttonRollOPEN
             // 
             this.buttonRollOPEN.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -327,6 +337,25 @@
             this.buttonRollOPEN.Text = "Browser";
             this.buttonRollOPEN.UseVisualStyleBackColor = true;
             this.buttonRollOPEN.Click += new System.EventHandler(this.buttonRollLogin_Click);
+            // 
+            // labelMMMM
+            // 
+            this.labelMMMM.AutoSize = true;
+            this.labelMMMM.Location = new System.Drawing.Point(675, 23);
+            this.labelMMMM.Name = "labelMMMM";
+            this.labelMMMM.Size = new System.Drawing.Size(51, 16);
+            this.labelMMMM.TabIndex = 44;
+            this.labelMMMM.Text = "MMMM";
+            this.labelMMMM.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(640, 9);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(29, 16);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "MM";
             // 
             // buttonAPI
             // 
@@ -352,6 +381,33 @@
             this.iconPictureBox1.TabIndex = 2;
             this.iconPictureBox1.TabStop = false;
             this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click_1);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(712, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(27, 16);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "DD";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(595, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 43;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(894, 5);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(33, 16);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Dag";
             // 
             // lblTitleChildform1
             // 
@@ -396,62 +452,6 @@
             this.panelDesktop.Size = new System.Drawing.Size(1070, 600);
             this.panelDesktop.TabIndex = 3;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
-            // 
-            // labelVecka
-            // 
-            this.labelVecka.AutoSize = true;
-            this.labelVecka.Location = new System.Drawing.Point(893, 22);
-            this.labelVecka.Name = "labelVecka";
-            this.labelVecka.Size = new System.Drawing.Size(67, 16);
-            this.labelVecka.TabIndex = 45;
-            this.labelVecka.Text = "vecka : 00";
-            this.labelVecka.Click += new System.EventHandler(this.labelVecka_Click);
-            // 
-            // labelMMMM
-            // 
-            this.labelMMMM.AutoSize = true;
-            this.labelMMMM.Location = new System.Drawing.Point(812, 22);
-            this.labelMMMM.Name = "labelMMMM";
-            this.labelMMMM.Size = new System.Drawing.Size(51, 16);
-            this.labelMMMM.TabIndex = 44;
-            this.labelMMMM.Text = "MMMM";
-            this.labelMMMM.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(787, 22);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 16);
-            this.label19.TabIndex = 48;
-            this.label19.Text = "MM";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(595, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 43;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(788, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 16);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "DD";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(821, 6);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(33, 16);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Dag";
             // 
             // Form1
             // 
