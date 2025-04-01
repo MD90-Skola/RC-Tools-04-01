@@ -62,12 +62,36 @@ namespace Modern.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AudioOption4 {
+        public string AudioTextBox1 {
             get {
-                return ((string)(this["AudioOption4"]));
+                return ((string)(this["AudioTextBox1"]));
             }
             set {
-                this["AudioOption4"] = value;
+                this["AudioTextBox1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AudioTextBox2 {
+            get {
+                return ((string)(this["AudioTextBox2"]));
+            }
+            set {
+                this["AudioTextBox2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AudioTextBox3 {
+            get {
+                return ((string)(this["AudioTextBox3"]));
+            }
+            set {
+                this["AudioTextBox3"] = value;
             }
         }
     }

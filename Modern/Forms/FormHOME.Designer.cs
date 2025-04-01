@@ -1,4 +1,6 @@
-﻿namespace Modern.Forms
+﻿using System;
+
+namespace Modern.Forms
 {
     partial class FormHOME
     {
@@ -31,9 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHOME));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label12 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -57,9 +56,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.iconToolStripButton1 = new FontAwesome.Sharp.IconToolStripButton();
             this.labelPortabeToolsText = new System.Windows.Forms.Label();
             this.radioButtonOption1 = new System.Windows.Forms.RadioButton();
@@ -67,6 +63,9 @@
             this.radioButtonOption3 = new System.Windows.Forms.RadioButton();
             this.iconPictureBoxAudioSettings = new FontAwesome.Sharp.IconPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxAudioTextBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxAudioTextBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAudioTextBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAudioSettings)).BeginInit();
@@ -80,35 +79,6 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(0, 16);
             this.label12.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(899, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 13;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(925, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 16);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "MMMM";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(900, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "vecka : 00";
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // textBox1
             // 
@@ -325,43 +295,13 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(584, 169);
+            this.pictureBox1.Location = new System.Drawing.Point(532, 295);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(444, 883);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(925, 42);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(33, 16);
-            this.label17.TabIndex = 40;
-            this.label17.Text = "Dag";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(900, 42);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 16);
-            this.label18.TabIndex = 41;
-            this.label18.Text = "DD";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(900, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 16);
-            this.label19.TabIndex = 42;
-            this.label19.Text = "MM";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // iconToolStripButton1
             // 
@@ -428,7 +368,7 @@
             this.iconPictureBoxAudioSettings.IconChar = FontAwesome.Sharp.IconChar.Gears;
             this.iconPictureBoxAudioSettings.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBoxAudioSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBoxAudioSettings.Location = new System.Drawing.Point(283, 119);
+            this.iconPictureBoxAudioSettings.Location = new System.Drawing.Point(289, 125);
             this.iconPictureBoxAudioSettings.Name = "iconPictureBoxAudioSettings";
             this.iconPictureBoxAudioSettings.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBoxAudioSettings.TabIndex = 47;
@@ -438,6 +378,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.textBoxAudioTextBox3);
+            this.panel1.Controls.Add(this.textBoxAudioTextBox2);
+            this.panel1.Controls.Add(this.textBoxAudioTextBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.iconPictureBoxAudioSettings);
             this.panel1.Controls.Add(this.radioButtonOption3);
@@ -447,6 +390,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(324, 157);
             this.panel1.TabIndex = 48;
+            // 
+            // textBoxAudioTextBox3
+            // 
+            this.textBoxAudioTextBox3.Location = new System.Drawing.Point(191, 103);
+            this.textBoxAudioTextBox3.Name = "textBoxAudioTextBox3";
+            this.textBoxAudioTextBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAudioTextBox3.TabIndex = 51;
+            this.textBoxAudioTextBox3.TextChanged += new System.EventHandler(this.textBoxAudioTextBox3_TextChanged);
+            // 
+            // textBoxAudioTextBox2
+            // 
+            this.textBoxAudioTextBox2.Location = new System.Drawing.Point(191, 77);
+            this.textBoxAudioTextBox2.Name = "textBoxAudioTextBox2";
+            this.textBoxAudioTextBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAudioTextBox2.TabIndex = 50;
+            this.textBoxAudioTextBox2.TextChanged += new System.EventHandler(this.textBoxAudioTextBox2_TextChanged);
+            // 
+            // textBoxAudioTextBox1
+            // 
+            this.textBoxAudioTextBox1.Location = new System.Drawing.Point(191, 53);
+            this.textBoxAudioTextBox1.Name = "textBoxAudioTextBox1";
+            this.textBoxAudioTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAudioTextBox1.TabIndex = 49;
+            this.textBoxAudioTextBox1.TextChanged += new System.EventHandler(this.textBoxAudioTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -473,12 +440,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.labelPortabeToolsText);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -493,8 +456,6 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label12);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHOME";
@@ -510,12 +471,20 @@
         }
 
         #endregion
+        private void button1_Click(object sender, EventArgs e) { }
+        private void button2_Click(object sender, EventArgs e) { }
+        private void button3_Click(object sender, EventArgs e) { }
+        private void button4_Click(object sender, EventArgs e) { }
+
+        private void label17_Click(object sender, EventArgs e) { }
+        private void label18_Click(object sender, EventArgs e) { }
+        private void label19_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void label4_Click_1(object sender, EventArgs e) { }
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -539,9 +508,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
         private System.Windows.Forms.Label labelPortabeToolsText;
         private System.Windows.Forms.RadioButton radioButtonOption1;
@@ -550,5 +516,13 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxAudioSettings;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private void label5_Click(object sender, EventArgs e) { }
+        private void label9_Click_1(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
+        private void textBox7_TextChanged(object sender, EventArgs e) { }
+
+        private System.Windows.Forms.TextBox textBoxAudioTextBox3;
+        private System.Windows.Forms.TextBox textBoxAudioTextBox2;
+        private System.Windows.Forms.TextBox textBoxAudioTextBox1;
     }
 }

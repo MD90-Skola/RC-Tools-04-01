@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Drawing;
+using System;
 
 
 namespace Modern.Forms.FolderFunctions
@@ -116,6 +117,7 @@ namespace Modern.Forms.FolderFunctions
 
 
         #endregion
+        private void checkedListBoxAudioOptions_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private System.Windows.Forms.CheckedListBox checkedListBoxAudioOptions;
         private System.Windows.Forms.Button buttonOption1;

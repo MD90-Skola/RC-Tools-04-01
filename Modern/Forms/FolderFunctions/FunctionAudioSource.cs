@@ -1,90 +1,88 @@
-﻿// Popup-ljudkällor med korrekt spacing i CheckedListBox
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using NAudio.CoreAudioApi;
 
 namespace Modern.Forms.FolderFunctions
 {
     public partial class FunctionAudioSource : Form
     {
-        public Action<string, int> OnAudioSourceSelected;
+        public Action<string, string, int> OnAudioSourceSelected;
+        private List<AudioDeviceInfo> ljudEnheter = new List<AudioDeviceInfo>();
 
         public FunctionAudioSource()
         {
             InitializeComponent();
-
-            // Flyttat hit från Designer – här funkar det!
-            checkedListBoxAudioOptions.DrawMode = DrawMode.OwnerDrawFixed;
-            checkedListBoxAudioOptions.ItemHeight = 42;
-            checkedListBoxAudioOptions.DrawItem += CheckedListBoxAudioOptions_DrawItem;
+            this.Load += FunctionAudioSource_Load;
         }
 
         private void FunctionAudioSource_Load(object sender, EventArgs e)
         {
-            LoadAudioDevices();
+            checkedListBoxAudioOptions.DrawMode = DrawMode.OwnerDrawFixed;
+            checkedListBoxAudioOptions.ItemHeight = 40;
+            checkedListBoxAudioOptions.DrawItem += CheckedListBoxAudioOptions_DrawItem;
+            LaddaLjudEnheter();
         }
 
-        private void LoadAudioDevices()
+        private void LaddaLjudEnheter()
         {
-            try
-            {
-                var enumerator = new MMDeviceEnumerator();
-                var devices = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active);
+            checkedListBoxAudioOptions.Items.Clear();
+            ljudEnheter.Clear();
 
-                checkedListBoxAudioOptions.Items.Clear();
-                foreach (var device in devices)
-                {
-                    checkedListBoxAudioOptions.Items.Add(device.FriendlyName);
-                }
-            }
-            catch (Exception ex)
+            var enumerator = new MMDeviceEnumerator();
+            var devices = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active);
+
+            foreach (var d in devices)
             {
-                MessageBox.Show("Kunde inte läsa ljudenheter: " + ex.Message);
+                var info = new AudioDeviceInfo { Name = d.FriendlyName, ID = d.ID };
+                ljudEnheter.Add(info);
+                checkedListBoxAudioOptions.Items.Add(info);
             }
         }
 
-        private void buttonOption1_Click(object sender, EventArgs e) => SendSelectedDevice(1);
-        private void buttonOption2_Click(object sender, EventArgs e) => SendSelectedDevice(2);
-        private void buttonOption3_Click(object sender, EventArgs e) => SendSelectedDevice(3);
+        private void buttonOption1_Click(object sender, EventArgs e) => Välj(1);
+        private void buttonOption2_Click(object sender, EventArgs e) => Välj(2);
+        private void buttonOption3_Click(object sender, EventArgs e) => Välj(3);
 
-        private void SendSelectedDevice(int option)
+        private void Välj(int val)
         {
-            if (checkedListBoxAudioOptions.SelectedItem != null)
+            if (checkedListBoxAudioOptions.SelectedItem is AudioDeviceInfo selected)
             {
-                string selectedDevice = checkedListBoxAudioOptions.SelectedItem.ToString();
-                OnAudioSourceSelected?.Invoke(selectedDevice, option);
+                OnAudioSourceSelected?.Invoke(selected.Name, selected.ID, val);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Välj en ljudenhet först.");
+                MessageBox.Show("Välj en ljudkälla först.");
             }
         }
-
-        private void checkedListBoxAudioOptions_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void CheckedListBoxAudioOptions_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
-
             var listBox = (CheckedListBox)sender;
-            var item = listBox.Items[e.Index];
+            var item = (AudioDeviceInfo)listBox.Items[e.Index];
             bool isChecked = listBox.GetItemChecked(e.Index);
 
             e.DrawBackground();
+            CheckBoxRenderer.DrawCheckBox(
+                e.Graphics,
+                new Point(e.Bounds.Left + 5, e.Bounds.Top + (e.Bounds.Height - 16) / 2),
+                isChecked ? System.Windows.Forms.VisualStyles.CheckBoxState.CheckedNormal : System.Windows.Forms.VisualStyles.CheckBoxState.UncheckedNormal);
 
-            CheckBoxState state = isChecked ? CheckBoxState.CheckedNormal : CheckBoxState.UncheckedNormal;
-            Point checkBoxLocation = new Point(e.Bounds.Left + 5, e.Bounds.Top + (e.Bounds.Height - 16) / 2);
-            CheckBoxRenderer.DrawCheckBox(e.Graphics, checkBoxLocation, state);
-
-            Rectangle textRect = new Rectangle(e.Bounds.Left + 26, e.Bounds.Top + 10, e.Bounds.Width - 26, e.Bounds.Height);
-            TextRenderer.DrawText(e.Graphics, item.ToString(), e.Font, textRect, e.ForeColor, TextFormatFlags.Left);
+            var textRect = new Rectangle(e.Bounds.Left + 26, e.Bounds.Top + 10, e.Bounds.Width - 26, e.Bounds.Height);
+            TextRenderer.DrawText(e.Graphics, item.Name, e.Font, textRect, e.ForeColor, TextFormatFlags.Left);
 
             e.DrawFocusRectangle();
         }
+    }
+
+    public class AudioDeviceInfo
+    {
+        public string Name { get; set; }
+        public string ID { get; set; }
+        public override string ToString() => Name;
     }
 }

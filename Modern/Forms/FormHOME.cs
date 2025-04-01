@@ -1,13 +1,16 @@
-﻿using System;
+﻿// FormHOME.cs – full fix för korrekt ljudväxling med FriendlyName till NirCmd
+
+using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
-using Modern.Forms.Functions;
 using Modern.Forms.FolderFunctions;
 
 namespace Modern.Forms
 {
     public partial class FormHOME : Form
     {
-        private Timer klockaTimer;
+        private string audioId1, audioId2, audioId3;
 
         public FormHOME()
         {
@@ -16,118 +19,156 @@ namespace Modern.Forms
 
         private void FormHOME_Load(object sender, EventArgs e)
         {
-            StartKlockaActive();
-            VisaDatorSpec();
-            VisaAvanceradSpec();
-            LoadSavedSettings();
+            radioButtonOption1.Text = Properties.Settings.Default.AudioOption1;
+            radioButtonOption2.Text = Properties.Settings.Default.AudioOption1;
+            radioButtonOption3.Text = Properties.Settings.Default.AudioOption2;
+
+            audioId1 = Properties.Settings.Default.AudioOption1;
+            audioId2 = Properties.Settings.Default.AudioOption2;
+            audioId3 = Properties.Settings.Default.AudioOption3;
+
+
+            textBoxAudioTextBox1.Text = Properties.Settings.Default.AudioTextBox1;
+            textBoxAudioTextBox2.Text = Properties.Settings.Default.AudioTextBox2;
+            textBoxAudioTextBox3.Text = Properties.Settings.Default.AudioTextBox3;
+
+
         }
-
-        private void LoadSavedSettings()
-        {
-            radioButtonOption1.Text = Properties.Settings.Default.AudioOption1?.ToString() ?? "Option 1";
-            radioButtonOption2.Text = Properties.Settings.Default.AudioOption2?.ToString() ?? "Option 2";
-            radioButtonOption3.Text = Properties.Settings.Default.AudioOption3?.ToString() ?? "Option 3";
-        }
-
-        private void OpenAudioSourcePopup()
-        {
-            var popup = new FunctionAudioSource();
-            popup.OnAudioSourceSelected = (deviceName, option) =>
-            {
-                switch (option)
-                {
-                    case 1: radioButtonOption1.Text = deviceName; break;
-                    case 2: radioButtonOption2.Text = deviceName; break;
-                    case 3: radioButtonOption3.Text = deviceName; break;
-                }
-
-                Properties.Settings.Default[$"AudioOption{option}"] = deviceName;
-                Properties.Settings.Default.Save();
-            };
-
-            popup.ShowDialog();
-        }
-
-        private void VisaDatorSpec()
-        {
-            textBox1.Text = FunctionsDatorSpecs.HämtaCPU();
-            var gpuLista = FunctionsDatorSpecs.HämtaGPUer();
-            textBox2.Text = gpuLista.Length > 0 ? gpuLista[0] : "Ingen GPU";
-            textBox3.Text = gpuLista.Length > 1 ? gpuLista[1] : "Ingen extra GPU";
-            textBox4.Text = FunctionsDatorSpecs.HämtaRAM();
-        }
-
-        private void VisaAvanceradSpec()
-        {
-            textBox5.Text = FunctionsDatorSpecs.HämtaModerkort();
-            textBox6.Text = FunctionsDatorSpecs.HämtaDisk();
-            textBox7.Text = FunctionsDatorSpecs.HämtaCputemp();
-        }
-
-        private void StartKlockaActive()
-        {
-            klockaTimer = new Timer();
-            klockaTimer.Interval = 1000;
-            klockaTimer.Tick += (s, e) =>
-            {
-                label3.Text = FunctionsKlocka.HämtaManad();
-                label4.Text = FunctionsKlocka.HämtaVecka();
-                label17.Text = DateTime.Now.ToString("dddd");
-                label18.Text = DateTime.Now.ToString("dd");
-                label19.Text = DateTime.Now.ToString("MM");
-            };
-            klockaTimer.Start();
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            klockaTimer?.Stop();
-            klockaTimer?.Dispose();
-            base.OnFormClosing(e);
-        }
-
-        // Eventhandlers du redan använder
-        private void button1_Click(object sender, EventArgs e) => FunctionPortableTools.StartPortableTool("RidNacs-3.0.zip", "RidNacs.exe");
-        private void button2_Click(object sender, EventArgs e) => FunctionPortableTools.StartPortableTool("openhardwaremonitor.zip", "OpenHardwareMonitor.exe");
-        private void button3_Click(object sender, EventArgs e) => FunctionPortableTools.StartPortableTool("CrystalDiskInfo.zip", "DiskInfo64A.exe");
-        private void button4_Click(object sender, EventArgs e) => FunctionPortableTools.StartPortableTool("Autoruns.zip", "Autoruns.exe");
-
-        // Tomma events du kan använda senare om du behöver
-        private void label1_Click(object sender, EventArgs e) { }
-        private void label2_Click(object sender, EventArgs e) { }
-        private void label4_Click(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-        private void label9_Click(object sender, EventArgs e) { }
-        private void label10_Click(object sender, EventArgs e) { }
-        private void label17_Click(object sender, EventArgs e) { }
-        private void label19_Click(object sender, EventArgs e) { }
-        private void pictureBox1_Click(object sender, EventArgs e) { }
-        private void label9_Click_1(object sender, EventArgs e) { }
-        private void label1_Click_1(object sender, EventArgs e) { }
-        private void textBox7_TextChanged(object sender, EventArgs e) { }
-
-        private void radioButtonOption1_CheckedChanged(object sender, EventArgs e) { }
-        private void radioButtonOption2_CheckedChanged(object sender, EventArgs e) { }
-        private void radioButtonOption3_CheckedChanged(object sender, EventArgs e) { }
 
         private void iconPictureBoxAudioSettings_Click(object sender, EventArgs e)
         {
-            OpenAudioSourcePopup();
+            var popup = new FunctionAudioSource();
+            popup.OnAudioSourceSelected = (name, id, option) =>
+            {
+                switch (option)
+                {
+                    case 1:
+                        radioButtonOption1.Text = name;
+                        audioId1 = name;
+                        Properties.Settings.Default.AudioOption1 = name;
+                        Properties.Settings.Default.AudioOption1 = name;
+                        break;
+                    case 2:
+                        radioButtonOption2.Text = name;
+                        audioId2 = name;
+                        Properties.Settings.Default.AudioOption1 = name;
+                        Properties.Settings.Default.AudioOption2 = name;
+                        break;
+                    case 3:
+                        radioButtonOption3.Text = name;
+                        audioId3 = name;
+                        Properties.Settings.Default.AudioOption2 = name;
+                        Properties.Settings.Default.AudioOption3 = name;
+                        break;
+                }
+                Properties.Settings.Default.Save();
+            };
+            popup.ShowDialog();
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void radioButtonOption1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButtonOption1.Checked)
+            {
+                MessageBox.Show($"Byter till: {audioId1}", "Ljudväxling");
+                BytLjudenhet(audioId1);
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void radioButtonOption2_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButtonOption2.Checked)
+            {
+                MessageBox.Show($"Byter till: {audioId2}", "Ljudväxling");
+                BytLjudenhet(audioId2);
+            }
         }
 
-        private void label4_Click_1(object sender, EventArgs e)
-        {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void textBoxAudioTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AudioTextBox1 = textBoxAudioTextBox1.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBoxAudioTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AudioTextBox2 = textBoxAudioTextBox2.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBoxAudioTextBox3_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AudioTextBox3 = textBoxAudioTextBox3.Text;
+
+            Properties.Settings.Default.Save();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        private void radioButtonOption3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonOption3.Checked)
+            {
+                MessageBox.Show($"Byter till: {audioId3}", "Ljudväxling");
+                BytLjudenhet(audioId3);
+            }
+        }
+
+        private void BytLjudenhet(string deviceName)
+        {
+            try
+            {
+                string exePath = Path.Combine(Application.StartupPath, "nircmd.exe");
+
+                if (!File.Exists(exePath))
+                {
+                    string zipPath = Path.Combine(Application.StartupPath, "Resources", "Program", "nircmd.zip");
+                    if (File.Exists(zipPath))
+                        System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, Application.StartupPath);
+                }
+
+                if (!File.Exists(exePath))
+                {
+                    MessageBox.Show("nircmd.exe saknas och kunde inte packas upp.");
+                    return;
+                }
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = exePath,
+                    Arguments = $"setdefaultsounddevice \"{deviceName}\"",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fel vid byte av ljudenhet: " + ex.Message);
+            }
         }
     }
 }
