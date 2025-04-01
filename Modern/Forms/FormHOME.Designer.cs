@@ -66,8 +66,11 @@
             this.radioButtonOption2 = new System.Windows.Forms.RadioButton();
             this.radioButtonOption3 = new System.Windows.Forms.RadioButton();
             this.iconPictureBoxAudioSettings = new FontAwesome.Sharp.IconPictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAudioSettings)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label12
@@ -81,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(857, 25);
+            this.label2.Location = new System.Drawing.Point(423, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 13;
@@ -90,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(883, 18);
+            this.label3.Location = new System.Drawing.Point(449, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 16);
             this.label3.TabIndex = 14;
@@ -99,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(858, 34);
+            this.label4.Location = new System.Drawing.Point(424, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 16);
             this.label4.TabIndex = 15;
@@ -320,7 +323,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(270, 278);
+            this.pictureBox1.Location = new System.Drawing.Point(219, 180);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(444, 883);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -331,7 +334,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(883, 2);
+            this.label17.Location = new System.Drawing.Point(449, 24);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(33, 16);
             this.label17.TabIndex = 40;
@@ -341,7 +344,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(858, 2);
+            this.label18.Location = new System.Drawing.Point(424, 24);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(27, 16);
             this.label18.TabIndex = 41;
@@ -350,7 +353,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(858, 18);
+            this.label19.Location = new System.Drawing.Point(424, 40);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(29, 16);
             this.label19.TabIndex = 42;
@@ -379,67 +382,85 @@
             // radioButtonOption1
             // 
             this.radioButtonOption1.AutoSize = true;
-            this.radioButtonOption1.Location = new System.Drawing.Point(822, 73);
+            this.radioButtonOption1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.radioButtonOption1.Location = new System.Drawing.Point(27, 51);
             this.radioButtonOption1.Name = "radioButtonOption1";
-            this.radioButtonOption1.Size = new System.Drawing.Size(103, 20);
+            this.radioButtonOption1.Size = new System.Drawing.Size(144, 24);
             this.radioButtonOption1.TabIndex = 44;
             this.radioButtonOption1.TabStop = true;
-            this.radioButtonOption1.Text = "radioButton1";
+            this.radioButtonOption1.Text = "Audio Source 1";
             this.radioButtonOption1.UseVisualStyleBackColor = true;
             this.radioButtonOption1.CheckedChanged += new System.EventHandler(this.radioButtonOption1_CheckedChanged);
             // 
             // radioButtonOption2
             // 
             this.radioButtonOption2.AutoSize = true;
-            this.radioButtonOption2.Location = new System.Drawing.Point(822, 99);
+            this.radioButtonOption2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.radioButtonOption2.Location = new System.Drawing.Point(27, 77);
             this.radioButtonOption2.Name = "radioButtonOption2";
-            this.radioButtonOption2.Size = new System.Drawing.Size(103, 20);
+            this.radioButtonOption2.Size = new System.Drawing.Size(144, 24);
             this.radioButtonOption2.TabIndex = 45;
             this.radioButtonOption2.TabStop = true;
-            this.radioButtonOption2.Text = "radioButton2";
+            this.radioButtonOption2.Text = "Audio Source 2";
             this.radioButtonOption2.UseVisualStyleBackColor = true;
             this.radioButtonOption2.CheckedChanged += new System.EventHandler(this.radioButtonOption2_CheckedChanged);
             // 
             // radioButtonOption3
             // 
             this.radioButtonOption3.AutoSize = true;
-            this.radioButtonOption3.Location = new System.Drawing.Point(822, 125);
+            this.radioButtonOption3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.radioButtonOption3.Location = new System.Drawing.Point(27, 103);
             this.radioButtonOption3.Name = "radioButtonOption3";
-            this.radioButtonOption3.Size = new System.Drawing.Size(103, 20);
+            this.radioButtonOption3.Size = new System.Drawing.Size(144, 24);
             this.radioButtonOption3.TabIndex = 46;
             this.radioButtonOption3.TabStop = true;
-            this.radioButtonOption3.Text = "radioButton3";
+            this.radioButtonOption3.Text = "Audio Source 2";
             this.radioButtonOption3.UseVisualStyleBackColor = true;
             this.radioButtonOption3.CheckedChanged += new System.EventHandler(this.radioButtonOption3_CheckedChanged);
             // 
             // iconPictureBoxAudioSettings
             // 
-            this.iconPictureBoxAudioSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.iconPictureBoxAudioSettings.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.iconPictureBoxAudioSettings.ForeColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBoxAudioSettings.IconChar = FontAwesome.Sharp.IconChar.Gears;
             this.iconPictureBoxAudioSettings.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBoxAudioSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBoxAudioSettings.Location = new System.Drawing.Point(819, 40);
+            this.iconPictureBoxAudioSettings.Location = new System.Drawing.Point(283, 119);
             this.iconPictureBoxAudioSettings.Name = "iconPictureBoxAudioSettings";
             this.iconPictureBoxAudioSettings.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBoxAudioSettings.TabIndex = 47;
             this.iconPictureBoxAudioSettings.TabStop = false;
             this.iconPictureBoxAudioSettings.Click += new System.EventHandler(this.iconPictureBoxAudioSettings_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.iconPictureBoxAudioSettings);
+            this.panel1.Controls.Add(this.radioButtonOption3);
+            this.panel1.Controls.Add(this.radioButtonOption1);
+            this.panel1.Controls.Add(this.radioButtonOption2);
+            this.panel1.Location = new System.Drawing.Point(722, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(324, 157);
+            this.panel1.TabIndex = 48;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 20);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Advanced Audio Source";
+            // 
             // FormHOME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(937, 473);
-            this.Controls.Add(this.iconPictureBoxAudioSettings);
-            this.Controls.Add(this.radioButtonOption3);
-            this.Controls.Add(this.radioButtonOption2);
-            this.Controls.Add(this.radioButtonOption1);
-            this.Controls.Add(this.labelPortabeToolsText);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
+            this.ClientSize = new System.Drawing.Size(1046, 567);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label15);
@@ -447,13 +468,20 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelPortabeToolsText);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -462,17 +490,17 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHOME";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.FormHOME_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAudioSettings)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,5 +545,7 @@
         private System.Windows.Forms.RadioButton radioButtonOption2;
         private System.Windows.Forms.RadioButton radioButtonOption3;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxAudioSettings;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
