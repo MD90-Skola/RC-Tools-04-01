@@ -52,6 +52,12 @@
             this.iconCurrentChildForm0 = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.labelVecka = new System.Windows.Forms.Label();
+            this.labelMMMM = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxYouTube)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxGithub)).BeginInit();
@@ -292,9 +298,15 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panelTitleBar.Controls.Add(this.labelVecka);
             this.panelTitleBar.Controls.Add(this.buttonRollOPEN);
+            this.panelTitleBar.Controls.Add(this.labelMMMM);
+            this.panelTitleBar.Controls.Add(this.label19);
             this.panelTitleBar.Controls.Add(this.buttonAPI);
             this.panelTitleBar.Controls.Add(this.iconPictureBox1);
+            this.panelTitleBar.Controls.Add(this.label18);
+            this.panelTitleBar.Controls.Add(this.label2);
+            this.panelTitleBar.Controls.Add(this.label17);
             this.panelTitleBar.Controls.Add(this.lblTitleChildform1);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm0);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -344,7 +356,7 @@
             // lblTitleChildform1
             // 
             this.lblTitleChildform1.AutoSize = true;
-            this.lblTitleChildform1.Location = new System.Drawing.Point(965, 22);
+            this.lblTitleChildform1.Location = new System.Drawing.Point(485, 16);
             this.lblTitleChildform1.Name = "lblTitleChildform1";
             this.lblTitleChildform1.Size = new System.Drawing.Size(44, 16);
             this.lblTitleChildform1.TabIndex = 1;
@@ -359,7 +371,7 @@
             this.iconCurrentChildForm0.IconColor = System.Drawing.Color.MediumPurple;
             this.iconCurrentChildForm0.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconCurrentChildForm0.IconSize = 26;
-            this.iconCurrentChildForm0.Location = new System.Drawing.Point(933, 12);
+            this.iconCurrentChildForm0.Location = new System.Drawing.Point(453, 6);
             this.iconCurrentChildForm0.Name = "iconCurrentChildForm0";
             this.iconCurrentChildForm0.Size = new System.Drawing.Size(26, 26);
             this.iconCurrentChildForm0.TabIndex = 0;
@@ -384,6 +396,62 @@
             this.panelDesktop.Size = new System.Drawing.Size(1070, 600);
             this.panelDesktop.TabIndex = 3;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // labelVecka
+            // 
+            this.labelVecka.AutoSize = true;
+            this.labelVecka.Location = new System.Drawing.Point(893, 22);
+            this.labelVecka.Name = "labelVecka";
+            this.labelVecka.Size = new System.Drawing.Size(67, 16);
+            this.labelVecka.TabIndex = 45;
+            this.labelVecka.Text = "vecka : 00";
+            this.labelVecka.Click += new System.EventHandler(this.labelVecka_Click);
+            // 
+            // labelMMMM
+            // 
+            this.labelMMMM.AutoSize = true;
+            this.labelMMMM.Location = new System.Drawing.Point(812, 22);
+            this.labelMMMM.Name = "labelMMMM";
+            this.labelMMMM.Size = new System.Drawing.Size(51, 16);
+            this.labelMMMM.TabIndex = 44;
+            this.labelMMMM.Text = "MMMM";
+            this.labelMMMM.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(787, 22);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(29, 16);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "MM";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(595, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 43;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(788, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(27, 16);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "DD";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(821, 6);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(33, 16);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Dag";
             // 
             // Form1
             // 
@@ -435,6 +503,12 @@
         private FontAwesome.Sharp.IconButton iconButtonMEDIA2;
         private FontAwesome.Sharp.IconButton iconButton6CROP;
         private System.Windows.Forms.Button buttonRollOPEN;
+        private System.Windows.Forms.Label labelVecka;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelMMMM;
+        private System.Windows.Forms.Label label2;
 
 
 

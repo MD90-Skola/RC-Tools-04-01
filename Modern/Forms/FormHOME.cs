@@ -79,10 +79,6 @@ namespace Modern.Forms
             klockaTimer.Start();
         }
 
-
-
-
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             klockaTimer?.Stop();
@@ -117,6 +113,21 @@ namespace Modern.Forms
         private void iconPictureBoxAudioSettings_Click(object sender, EventArgs e)
         {
             OpenAudioSourcePopup();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,6 +23,9 @@ using System.Management; // ✅ Denna är absolut nödvändig!
 using System.Diagnostics;
 using System.IO;
 using System.Media;
+using System.Globalization;
+using Modern.Forms.Functions;
+
 
 
 
@@ -44,7 +47,8 @@ namespace Modern
         private IconButton currentBtn;
         private Panel leftBoarderBtn;
         private Form currentChildForm;
-        
+        private Timer klockaTimer;
+
 
 
 
@@ -295,6 +299,8 @@ namespace Modern
         {      
             ActivateButton(iconButton1, RGBColors.color1);
             OpenChildForm(new FormHOME());
+            StartKlockaActive();
+
         }
 
 
@@ -448,7 +454,88 @@ namespace Modern
         // TEST ZONE 
 
 
-    
+
+
+        public static string HämtaManad()
+        {
+            return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month);
+        }
+
+
+
+
+
+        public static string HämtaVecka()
+        {
+            CultureInfo cul = CultureInfo.CurrentCulture;
+            int veckaNummer = cul.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            return "Vecka: " + veckaNummer.ToString("00");
+        }
+
+
+
+
+
+
+
+
+
+
+        private void StartKlockaActive()
+        {
+            klockaTimer = new Timer();
+            klockaTimer.Interval = 1000;
+            klockaTimer.Tick += (s, e) =>
+            {
+                labelMMMM.Text = FunctionsKlocka.HämtaManad();
+                labelVecka.Text = FunctionsKlocka.HämtaVecka();
+                label17.Text = DateTime.Now.ToString("dddd");
+                label18.Text = DateTime.Now.ToString("dd");
+                label19.Text = DateTime.Now.ToString("MM");
+            };
+            klockaTimer.Start();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            klockaTimer?.Stop();
+            klockaTimer?.Dispose();
+            base.OnFormClosing(e);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -549,6 +636,21 @@ namespace Modern
             buttonRollOPEN.Visible = false;
             
 
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelVecka_Click(object sender, EventArgs e)
+        {
 
         }
 
